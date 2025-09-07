@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
 env:
   TZ: 'Europe/Stockholm'
+  GARMIN_TOKEN_DIR: '/home/runner/.garth'
 
 jobs:
   sync:
@@ -38,14 +39,15 @@ jobs:
         env:
           GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
           GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+          GARMIN_AUTH_TOKEN: ${{ secrets.GARMIN_AUTH_TOKEN }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
           NOTION_PR_DB_ID: ${{ secrets.NOTION_PR_DB_ID }}
           NOTION_STEPS_DB_ID: ${{ secrets.NOTION_STEPS_DB_ID }}
           NOTION_SLEEP_DB_ID: ${{ secrets.NOTION_SLEEP_DB_ID }}
-          TZ: 'Stockholm/Europe'
+          TZ: 'Europe/Stockholm'
         run: |
-          python garmin-activities.py
-          python personal-records.py
-          python daily-steps.py
-          python sleep-data.py
+          python -m src.workflows.garmin-activities
+          python -m src.workflows.personal-records
+          python -m src.workflows.daily-steps
+          python -m src.workflows.sleep-data
