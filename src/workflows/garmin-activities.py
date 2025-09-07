@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from src.helpers import get_garmin_client, get_notion_client
 
 # Your local time zone, replace with the appropriate one if needed
-local_tz = pytz.timezone('America/Toronto')
+local_tz = pytz.timezone('Europe/Stockholm')
 
 ACTIVITY_ICONS = {
     "Barre": "https://img.icons8.com/?size=100&id=66924&format=png&color=000000",
@@ -25,6 +25,9 @@ ACTIVITY_ICONS = {
     "Treadmill Running": "https://img.icons8.com/?size=100&id=9794&format=png&color=000000",
     "Walking": "https://img.icons8.com/?size=100&id=9807&format=png&color=000000",
     "Yoga": "https://img.icons8.com/?size=100&id=9783&format=png&color=000000",
+    "Bjj": "https://img.icons8.com/ios-filled/100/wrestling.png",
+    "Mixed Martial Art": "https://img.icons8.com/ios-filled/100/wrestling.png",
+    "BJJ": "https://img.icons8.com/ios-filled/100/wrestling.png",
     # Add more mappings as needed
 }
 
